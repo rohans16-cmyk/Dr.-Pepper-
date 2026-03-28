@@ -1,0 +1,7 @@
+{
+  "name": "Dr Pepper: The 23 Flavor Experience",
+  "description": "A high-converting, immersive marketing website for Dr Pepper, focusing on brand engagement, product discovery, and retail conversion.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
