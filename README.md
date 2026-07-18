@@ -8,6 +8,8 @@ Immersive marketing website for Dr Pepper — brand storytelling, product discov
 
 - **Hero** — Full-viewport brand intro with motion (“The One You Crave”)
 - **Product lineup** — Interactive showcase for Original, Cherry, Cream Soda, and Zero Sugar
+- **Insights** — Simple demo dashboard: highlight metrics, CSS bar chart for flavor share, regional favorites table
+- **Flavor quiz** — 3-question scorer that recommends a product (easy-to-explain point totals)
 - **The 23 Story** — Brand narrative around the 23-flavor blend
 - **Limited drops** — Seasonal / scarcity-style promo section
 - **Store locator** — “Find Near Me” CTA (geolocation-ready)
@@ -38,7 +40,10 @@ Dr.-Pepper-/
 └── src/
     ├── main.tsx           # React entry
     ├── index.css          # Global styles / Tailwind
-    └── App.tsx            # Page sections (Navbar → Footer)
+    ├── data.ts            # Sample survey + quiz scoring data
+    ├── Insights.tsx       # By-the-numbers dashboard
+    ├── FlavorQuiz.tsx     # Flavor match quiz
+    └── App.tsx            # Page shell + marketing sections
 ```
 
 ## Getting started
@@ -100,12 +105,11 @@ Product imagery currently uses Unsplash placeholders — swap for licensed brand
 
 ## Roadmap ideas
 
-Planned extensions (data + stats):
+Possible next steps:
 
-- `/insights` dashboard — flavor share, regional demand, exploratory charts
-- Product quiz → scored recommendation with transparent weights
-- Store locator backed by GeoJSON + distance stats
-- Limited-drop sell-through curves with simple forecasts
+- Swap demo survey numbers for a real Google Form export
+- Add a simple ZIP → nearest store list (static GeoJSON)
+- Host on Vercel / Netlify with a custom domain
 
 ## License
 

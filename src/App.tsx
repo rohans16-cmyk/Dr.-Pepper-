@@ -20,6 +20,8 @@ import {
   Star,
   Clock
 } from 'lucide-react';
+import Insights from './Insights';
+import FlavorQuiz from './FlavorQuiz';
 
 // --- Types & Constants ---
 
@@ -93,9 +95,10 @@ const Navbar = () => {
           </a>
           <div className="hidden md:flex gap-6 text-sm font-bold uppercase tracking-widest text-[#F5F2ED]/80">
             <a href="#products" className="hover:text-white transition-colors">Products</a>
+            <a href="#insights" className="hover:text-white transition-colors">Insights</a>
+            <a href="#quiz" className="hover:text-white transition-colors">Quiz</a>
             <a href="#story" className="hover:text-white transition-colors">The 23 Story</a>
             <a href="#limited" className="hover:text-white transition-colors">Limited Drops</a>
-            <a href="#recipes" className="hover:text-white transition-colors">Recipes</a>
           </div>
         </div>
 
@@ -119,10 +122,11 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-full left-0 w-full bg-[#711F25] border-t border-white/10 p-6 flex flex-col gap-4 md:hidden"
           >
-            <a href="#products" className="text-xl font-bold text-white uppercase italic">Products</a>
-            <a href="#story" className="text-xl font-bold text-white uppercase italic">The 23 Story</a>
-            <a href="#limited" className="text-xl font-bold text-white uppercase italic">Limited Drops</a>
-            <a href="#recipes" className="text-xl font-bold text-white uppercase italic">Recipes</a>
+            <a href="#products" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>Products</a>
+            <a href="#insights" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>Insights</a>
+            <a href="#quiz" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>Quiz</a>
+            <a href="#story" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>The 23 Story</a>
+            <a href="#limited" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>Limited Drops</a>
             <button className="flex items-center justify-center gap-2 bg-[#F5F2ED] text-[#711F25] py-4 rounded-xl font-bold uppercase tracking-widest">
               <MapPin size={18} />
               Find Near Me
@@ -499,11 +503,11 @@ const Footer = () => {
           <div>
             <h4 className="text-xs font-black uppercase tracking-[0.3em] mb-8 text-white">Explore</h4>
             <ul className="space-y-4 font-bold text-sm uppercase tracking-widest">
-              <li><a href="#" className="hover:text-white transition-colors">Products</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">The 23 Story</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Limited Drops</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Recipes</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Merchandise</a></li>
+              <li><a href="#products" className="hover:text-white transition-colors">Products</a></li>
+              <li><a href="#insights" className="hover:text-white transition-colors">Insights</a></li>
+              <li><a href="#quiz" className="hover:text-white transition-colors">Quiz</a></li>
+              <li><a href="#story" className="hover:text-white transition-colors">The 23 Story</a></li>
+              <li><a href="#limited" className="hover:text-white transition-colors">Limited Drops</a></li>
             </ul>
           </div>
 
@@ -543,6 +547,8 @@ export default function App() {
       <main>
         <Hero />
         <ProductShowcase />
+        <Insights />
+        <FlavorQuiz />
         <FlavorStory />
         <LimitedDrops />
         <StoreLocator />
