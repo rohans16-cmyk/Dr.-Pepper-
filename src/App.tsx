@@ -21,6 +21,7 @@ import {
   Clock
 } from 'lucide-react';
 import Insights from './Insights';
+import DataScienceLab from './DataScienceLab';
 import FlavorQuiz from './FlavorQuiz';
 
 // --- Types & Constants ---
@@ -96,6 +97,7 @@ const Navbar = () => {
           <div className="hidden md:flex gap-6 text-sm font-bold uppercase tracking-widest text-[#F5F2ED]/80">
             <a href="#products" className="hover:text-white transition-colors">Products</a>
             <a href="#insights" className="hover:text-white transition-colors">Insights</a>
+            <a href="#lab" className="hover:text-white transition-colors">Data Lab</a>
             <a href="#quiz" className="hover:text-white transition-colors">Quiz</a>
             <a href="#story" className="hover:text-white transition-colors">The 23 Story</a>
             <a href="#limited" className="hover:text-white transition-colors">Limited Drops</a>
@@ -124,6 +126,7 @@ const Navbar = () => {
           >
             <a href="#products" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>Products</a>
             <a href="#insights" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>Insights</a>
+            <a href="#lab" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>Data Lab</a>
             <a href="#quiz" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>Quiz</a>
             <a href="#story" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>The 23 Story</a>
             <a href="#limited" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>Limited Drops</a>
@@ -505,6 +508,7 @@ const Footer = () => {
             <ul className="space-y-4 font-bold text-sm uppercase tracking-widest">
               <li><a href="#products" className="hover:text-white transition-colors">Products</a></li>
               <li><a href="#insights" className="hover:text-white transition-colors">Insights</a></li>
+              <li><a href="#lab" className="hover:text-white transition-colors">Data Lab</a></li>
               <li><a href="#quiz" className="hover:text-white transition-colors">Quiz</a></li>
               <li><a href="#story" className="hover:text-white transition-colors">The 23 Story</a></li>
               <li><a href="#limited" className="hover:text-white transition-colors">Limited Drops</a></li>
@@ -548,6 +552,7 @@ export default function App() {
         <Hero />
         <ProductShowcase />
         <Insights />
+        <DataScienceLab />
         <FlavorQuiz />
         <FlavorStory />
         <LimitedDrops />
