@@ -36,6 +36,8 @@ interface Product {
   tags: string[];
 }
 
+const asset = (file: string) => `${import.meta.env.BASE_URL}products/${file}`;
+
 const PRODUCTS: Product[] = [
   {
     id: 'original',
@@ -43,7 +45,7 @@ const PRODUCTS: Product[] = [
     description: 'The one and only. A unique blend of 23 flavors that has been a favorite since 1885.',
     color: '#711F25',
     accent: '#F5F2ED',
-    image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&q=80&w=400',
+    image: asset('original.png'),
     tags: ['Classic', '23 Flavors']
   },
   {
@@ -52,7 +54,7 @@ const PRODUCTS: Product[] = [
     description: 'A smooth addition of cherry flavor to the classic Dr Pepper blend.',
     color: '#9E1B32',
     accent: '#F5F2ED',
-    image: 'https://images.unsplash.com/photo-1543253687-c931c8e01820?auto=format&fit=crop&q=80&w=400',
+    image: asset('cherry.jpg'),
     tags: ['Smooth', 'Fruity']
   },
   {
@@ -61,7 +63,7 @@ const PRODUCTS: Product[] = [
     description: 'The perfect pairing of Dr Pepper and smooth, rich cream soda.',
     color: '#D4AF37',
     accent: '#711F25',
-    image: 'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&q=80&w=400',
+    image: asset('cream-soda.jpg'),
     tags: ['Rich', 'Creamy']
   },
   {
@@ -70,7 +72,7 @@ const PRODUCTS: Product[] = [
     description: 'All 23 flavors, zero sugar. The bold taste you love with none of the calories.',
     color: '#1A1A1A',
     accent: '#711F25',
-    image: 'https://images.unsplash.com/photo-1581006852262-e4307cf6283a?auto=format&fit=crop&q=80&w=400',
+    image: asset('zero-sugar.jpg'),
     tags: ['Zero Sugar', 'Bold']
   }
 ];
@@ -183,10 +185,9 @@ const Hero = () => {
         >
           <div className="absolute inset-0 bg-white/10 blur-3xl rounded-full scale-75 animate-pulse" />
           <img 
-            src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&q=80&w=600" 
-            alt="Dr Pepper Can" 
-            className="relative z-10 w-full max-w-sm drop-shadow-[0_35px_35px_rgba(0,0,0,0.5)] transform hover:rotate-6 transition-transform duration-500 cursor-pointer"
-            referrerPolicy="no-referrer"
+            src={asset('original.png')} 
+            alt="Dr Pepper Original can" 
+            className="relative z-10 w-full max-w-sm drop-shadow-[0_35px_35px_rgba(0,0,0,0.5)] transform hover:rotate-6 transition-transform duration-500 cursor-pointer object-contain"
           />
           
           {/* Floating Fizz Elements */}
@@ -283,8 +284,7 @@ const ProductShowcase = () => {
                   <img 
                     src={activeProduct.image} 
                     alt={activeProduct.name} 
-                    className="relative z-10 w-full rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
+                    className="relative z-10 w-full max-h-[520px] object-contain rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500 bg-[#1A1A1A]/5"
                   />
                 </div>
                 <div>
