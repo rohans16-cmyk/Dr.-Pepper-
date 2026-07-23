@@ -410,10 +410,9 @@ const LimitedDrops = () => {
 
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&q=80&w=600" 
-                alt="Limited Edition" 
-                className="w-full rounded-3xl shadow-[0_50px_100px_rgba(0,0,0,0.5)] transform rotate-3 hover:rotate-0 transition-transform duration-700"
-                referrerPolicy="no-referrer"
+                src={asset('dark-berry.jpg')} 
+                alt="Dr Pepper Dark Berry limited edition can" 
+                className="w-full max-h-[560px] object-cover rounded-3xl shadow-[0_50px_100px_rgba(0,0,0,0.5)] transform rotate-3 hover:rotate-0 transition-transform duration-700"
               />
               <div className="absolute -bottom-6 -right-6 bg-white text-[#711F25] p-8 rounded-3xl shadow-2xl transform -rotate-6">
                 <Star className="mb-2" fill="currentColor" />
