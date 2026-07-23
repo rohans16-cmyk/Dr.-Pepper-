@@ -12,7 +12,7 @@ Immersive marketing website for Dr Pepper — brand storytelling, product discov
 - **Flavor quiz** — 3-question scorer that recommends a product (easy-to-explain point totals)
 - **The 23 Story** — Brand narrative around the 23-flavor blend
 - **Limited drops** — Seasonal / scarcity-style promo section
-- **Store locator** — Google Maps + Places: zip/city search, geolocation, nearby grocery/convenience markers
+- **Store locator** — Free OpenStreetMap map with zip/city search, geolocation, and nearby grocery/convenience markers
 - **Responsive nav** — Desktop links + mobile menu and sticky mobile CTA
 - **Motion** — Scroll/entrance animations via Motion (`motion/react`)
 
@@ -63,7 +63,7 @@ npm install
 
 ### Environment (optional)
 
-Copy the example env file for Maps (and Gemini if you use it later):
+Copy the example env file if you plan to use Gemini later:
 
 ```bash
 cp .env.example .env
@@ -71,13 +71,10 @@ cp .env.example .env
 
 | Variable | Purpose |
 | --- | --- |
-| `VITE_GOOGLE_MAPS_API_KEY` | Google Maps JavaScript API key (client-side). Enable Maps JavaScript API + Places API; restrict by HTTP referrer. Without it, the locator shows a fallback empty state. |
 | `GEMINI_API_KEY` | Gemini API key (injected into the client via Vite `define`) |
 | `APP_URL` | Public app URL (hosting / callbacks) |
 
-For GitHub Pages, add `VITE_GOOGLE_MAPS_API_KEY` as a repository secret — the deploy workflow injects it at build time.
-
-The marketing UI loads without keys; the interactive map needs the Maps key.
+The store locator uses **OpenStreetMap** (Leaflet + Nominatim + Overpass) and needs **no API key or billing**.
 
 ### Run locally
 
