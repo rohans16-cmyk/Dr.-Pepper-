@@ -309,8 +309,8 @@ export default function StoreLocator() {
               <span className="text-black/20">Fix.</span>
             </h2>
             <p className="text-[#711F25]/60 text-lg mb-12 font-medium">
-              Craving that unique 23-flavor blend? Search nearby grocery and convenience stores on a
-              free OpenStreetMap — no Google billing required.
+              Craving that unique 23-flavor blend? Search nearby grocery and convenience stores to
+              find Dr Pepper near you.
             </p>
 
             <div className="flex flex-col gap-4">
