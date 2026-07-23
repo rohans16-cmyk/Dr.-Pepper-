@@ -14,7 +14,6 @@ import {
   Instagram, 
   Twitter, 
   Facebook, 
-  ArrowRight,
   Droplets,
   Zap,
   Star,
@@ -23,6 +22,8 @@ import {
 import Insights from './Insights';
 import DataScienceLab from './DataScienceLab';
 import FlavorQuiz from './FlavorQuiz';
+import StoreLocator from './StoreLocator';
+import { requestLocateNearMe } from './mapsLoader';
 
 // --- Types & Constants ---
 
@@ -107,7 +108,11 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <button className="hidden md:flex items-center gap-2 bg-[#F5F2ED] text-[#711F25] px-5 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-white transition-all transform hover:scale-105">
+          <button
+            type="button"
+            onClick={requestLocateNearMe}
+            className="hidden md:flex items-center gap-2 bg-[#F5F2ED] text-[#711F25] px-5 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-white transition-all transform hover:scale-105"
+          >
             <MapPin size={14} />
             Find Near Me
           </button>
@@ -132,9 +137,17 @@ const Navbar = () => {
             <a href="#quiz" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>Quiz</a>
             <a href="#story" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>The 23 Story</a>
             <a href="#limited" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>Limited Drops</a>
-            <button className="flex items-center justify-center gap-2 bg-[#F5F2ED] text-[#711F25] py-4 rounded-xl font-bold uppercase tracking-widest">
+            <a href="#locator" className="text-xl font-bold text-white uppercase italic" onClick={() => setIsOpen(false)}>Find Near Me</a>
+            <button
+              type="button"
+              className="flex items-center justify-center gap-2 bg-[#F5F2ED] text-[#711F25] py-4 rounded-xl font-bold uppercase tracking-widest"
+              onClick={() => {
+                setIsOpen(false);
+                requestLocateNearMe();
+              }}
+            >
               <MapPin size={18} />
-              Find Near Me
+              Use My Location
             </button>
           </motion.div>
         )}
@@ -166,11 +179,18 @@ const Hero = () => {
             23 flavors. One unique taste. Since 1885, we've been crafting the boldest blend in the game.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="bg-[#F5F2ED] text-[#711F25] px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-white transition-all transform hover:scale-105 flex items-center gap-2">
+            <a
+              href="#products"
+              className="bg-[#F5F2ED] text-[#711F25] px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-white transition-all transform hover:scale-105 flex items-center gap-2"
+            >
               Explore Flavors
               <ChevronRight size={20} />
-            </button>
-            <button className="border-2 border-[#F5F2ED] text-[#F5F2ED] px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-[#F5F2ED] hover:text-[#711F25] transition-all flex items-center gap-2">
+            </a>
+            <button
+              type="button"
+              onClick={requestLocateNearMe}
+              className="border-2 border-[#F5F2ED] text-[#F5F2ED] px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-[#F5F2ED] hover:text-[#711F25] transition-all flex items-center gap-2"
+            >
               <MapPin size={20} />
               Find A Store
             </button>
@@ -427,56 +447,6 @@ const LimitedDrops = () => {
   );
 };
 
-const StoreLocator = () => {
-  return (
-    <section className="py-24 bg-[#F5F2ED]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
-            <div className="bg-white p-4 rounded-[2rem] shadow-2xl">
-              <div className="bg-gray-100 rounded-2xl h-[400px] flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20" />
-                <div className="relative z-10 text-center p-8">
-                  <MapPin size={48} className="text-[#711F25] mx-auto mb-4" />
-                  <h3 className="text-2xl font-black italic uppercase text-[#711F25] mb-2">Interactive Map</h3>
-                  <p className="text-[#711F25]/60 text-sm font-bold uppercase tracking-widest">Enable location to find stores</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="order-1 md:order-2">
-            <span className="text-[#711F25] font-black uppercase tracking-[0.4em] text-xs mb-4 block">Availability</span>
-            <h2 className="text-5xl md:text-7xl font-black text-[#711F25] italic uppercase leading-none mb-8">
-              Find Your <br />
-              <span className="text-black/20">Fix.</span>
-            </h2>
-            <p className="text-[#711F25]/60 text-lg mb-12 font-medium">
-              Craving that unique 23-flavor blend? Use our store locator to find Dr Pepper retailers, restaurants, and vending machines near you.
-            </p>
-            
-            <div className="flex flex-col gap-4">
-              <div className="relative">
-                <input 
-                  type="text" 
-                  placeholder="Enter Zip Code or City" 
-                  className="w-full bg-white border-2 border-[#711F25]/10 rounded-2xl px-6 py-5 font-bold text-[#711F25] focus:outline-none focus:border-[#711F25] transition-colors"
-                />
-                <button className="absolute right-3 top-1/2 -translate-y-1/2 bg-[#711F25] text-white p-3 rounded-xl hover:bg-black transition-colors">
-                  <ArrowRight size={20} />
-                </button>
-              </div>
-              <button className="flex items-center justify-center gap-2 text-[#711F25] font-black uppercase tracking-widest text-sm hover:underline">
-                <MapPin size={16} />
-                Use My Current Location
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const Footer = () => {
   return (
     <footer className="bg-[#711F25] text-[#F5F2ED] py-24 border-t border-white/10">
@@ -561,7 +531,11 @@ export default function App() {
 
       {/* Sticky CTA for Mobile */}
       <div className="fixed bottom-6 left-6 right-6 z-40 md:hidden">
-        <button className="w-full bg-[#711F25] text-white py-4 rounded-2xl font-black uppercase tracking-widest shadow-2xl flex items-center justify-center gap-2">
+        <button
+          type="button"
+          onClick={requestLocateNearMe}
+          className="w-full bg-[#711F25] text-white py-4 rounded-2xl font-black uppercase tracking-widest shadow-2xl flex items-center justify-center gap-2"
+        >
           <MapPin size={20} />
           Find Dr Pepper Near You
         </button>
